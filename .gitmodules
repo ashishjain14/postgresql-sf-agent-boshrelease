@@ -1,0 +1,3 @@
+[submodule "src/postgresql-agent"]
+	path = src/postgresql-agent
+	url = git@github.com:ashishjain14/postgresql-sf-agent.git
