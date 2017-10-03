@@ -1,0 +1,16 @@
+# abort script on any command that exits with a non zero value
+set -e
+set -u
+
+PATH=/var/vcap/packages/node/bin:$PATH
+
+
+# Copy the 'postgresql-agent' directory from /src/ to the installation target of this release
+echo "Copying postgresql-agent files..."
+cp -a ${BOSH_COMPILE_TARGET}/postgresql-agent/* ${BOSH_INSTALL_TARGET}/
+
+# Install npm dependencies
+echo "Rebuild NPM dependencies..."
+cd ${BOSH_INSTALL_TARGET}
+npm rebuild
+

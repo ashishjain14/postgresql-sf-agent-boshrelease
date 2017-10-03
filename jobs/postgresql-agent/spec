@@ -1,0 +1,34 @@
+---
+name: postgresql-agent
+
+packages:
+  - node
+  - bosh-helpers
+  - postgresql-agent
+
+templates:
+  config/settings.yml.erb: config/settings.yml
+  bin/job_properties.sh.erb: bin/job_properties.sh
+  bin/postgresql-agent_ctl.erb: bin/postgresql-agent_ctl
+
+properties:
+  agent.port:
+    description: Port of Agent API.
+    default: 2718
+  agent.username:
+    description: User name of Agent.
+    default: admin
+  agent.password:
+    description: Password of Agent.
+    default: admin
+  agent.manifest.jobs:
+    description: The jobs of the deployment manifest.
+    default: []
+  agent.manifest.properties:
+    description: The properties of the deployment manifest.
+    default: {}
+  agent.path.logs:
+    description: Path of logs
+    default: /var/vcap/sys/log/postgresql-agent/
+
+

@@ -1,0 +1,22 @@
+---
+agent:
+  username: <%= p('agent.username') %>
+  password: <%= p('agent.password') %>
+  port: <%= p('agent.port') %>
+  manifest:
+    jobs:
+     - name: postgresql
+       networks:
+          - name: postgresql-network
+            static_ips:
+                    - <%= p('agent.manifest.jobs')[0]['networks'][0]['static_ips'][0] %>
+    properties:
+        postgresql:
+          port: <%= p('agent.manifest.properties.pgpool.backend.port') %>
+          database: <%= p('agent.manifest.properties.pgpool.databases')[0]['name'] %>
+          host: localhost
+          admin:
+            user: <%= p('agent.manifest.properties.pgpool.users')[0]['username'] %>
+            password: <%= p('agent.manifest.properties.pgpool.users')[0]['password'] %>
+path:
+  logs: /var/vcap/sys/log/postgresql-agent/

@@ -1,0 +1,9 @@
+---
+
+name: postgresql-agent
+
+dependencies:
+- node
+
+files:
+- postgresql-agent/**/*

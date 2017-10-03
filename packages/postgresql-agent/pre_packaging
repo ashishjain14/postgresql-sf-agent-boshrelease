@@ -1,0 +1,8 @@
+# abort script on any command that exits with a non zero value
+set -e
+cd ${BUILD_DIR}/postgresql-agent
+#
+################ NPM DEPENDENCIES
+#
+## Install production dependencies
+npm install

@@ -1,0 +1,6 @@
+check process postgresql-agent
+  with pidfile /var/vcap/sys/run/postgresql-agent/postgresql-agent.pid
+  start program "/var/vcap/jobs/postgresql-agent/bin/postgresql-agent_ctl start"
+  stop program "/var/vcap/jobs/postgresql-agent/bin/postgresql-agent_ctl stop"
+  group vcap
+
